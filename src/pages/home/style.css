@@ -1,0 +1,29 @@
+.ant-layout {
+    height: 1000px
+}
+
+.ant-layout-sider {
+    background-color: white;
+}
+
+.ant-layout-sider {
+    padding-top: 64px;
+}
+
+.ant-layout-header {
+    background-color: white;
+}
+
+.ant-menu .ant-menu-item {
+    margin-top: 50px;
+    font-size: 15px;
+}
+
+.site-layout-sub-header-background {
+    padding: 0
+}
+
+.site-layout-background {
+    padding: 24;
+    min-height: 360
+}
