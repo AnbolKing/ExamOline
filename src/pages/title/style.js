@@ -14,3 +14,8 @@ export const buttonStyle = {
   border:'null',
   borderRadius:'10px',
 }
+
+export const titleContent = {
+  marginTop:'20px',
+  borderTop:'1px solid #000'
+}

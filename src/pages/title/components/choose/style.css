@@ -1,0 +1,13 @@
+.ant-checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.ant-checkbox-wrapper+.ant-checkbox-wrapper {
+    margin-left: 0
+}
+
+.ant-checkbox-inner {
+    width: 23px;
+    height: 23px;
+}

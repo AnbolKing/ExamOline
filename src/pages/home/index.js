@@ -12,6 +12,8 @@ import ExamManage from './components/examManage/index';
 import TitleManage from './components/titleManage/index';
 import ExamAnaly from './components/examAnaly/index';
 import Title from '../title/index';
+import ExamDetail from '../exam/detail/index';
+import CreateExam from '../exam/create/index';
 import store from '../../reducer/index';
 import emitter from '../../util/events';
 const { Header, Content, Footer, Sider } = Layout;
@@ -21,7 +23,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page:5,
+      page:7,
     }
     this.handleChangePage = this.handleChangePage.bind(this);
     this.handleShowPage = this.handleShowPage.bind(this);
@@ -76,6 +78,16 @@ class Home extends Component {
     if(index === 5) {
       return (
         <Title/>
+      )
+    }
+    if(index === 6) {
+      return (
+        <ExamDetail/>
+      )
+    }
+    if(index === 7) {
+      return (
+        <CreateExam />
       )
     }
   }

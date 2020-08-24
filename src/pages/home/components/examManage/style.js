@@ -6,6 +6,16 @@ export const contentHeader = {
   borderBottom:'1px solid #000',
 }
 
+export const contentHeaderStyle = {
+  display:'flex',
+  justifyContent:'space-around',
+  alignItems:'center',
+  height:'50px',
+  borderBottom:'1px solid #000',
+  borderTop:'1px solid #000',
+  cursor:'pointer'
+}
+
 export const textStyle = {
   flex:'1',
   textAlign:'center'

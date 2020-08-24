@@ -1,23 +1,34 @@
-export const buttonBox = {
-  display:'flex',
-  justifyContent:'space-around',
-  alignItems:'center',
+export const headerStyle = {
+  width:'100%',
   height:'100px',
-  width:'50%',
+  display:'flex',
+  justifyContent:'center',
+  alignItems:'center',
+  borderBottom:'1px solid #000'
+}
+
+export const button1Style = {
+  flex:'2',
+  textAlign:'center',
+}
+
+export const button2Style = {
+  flex:'1',
+  textAlign:'center',
+}
+
+export const button3Style = {
+  flex:'1',
+  textAlign:'center',
+}
+
+export const button4Style = {
+  flex:'1',
+  textAlign:'center',
 }
 
 export const buttonStyle = {
-  textAlign:'center',
-  width:'150px',
-  height:'50px',
-  border:'null',
-  borderRadius:'10px',
-}
-
-export const inputStyle = {
-  height:'50px',
-  width:'300px',
-  borderRadius:'10px'
+  borderRadius:'5px'
 }
 
 export const contentHeader = {
@@ -40,5 +51,4 @@ export const bodyHeader = {
   alignItems:'center',
   height:'50px',
   borderBottom:'1px solid #000',
-  cursor:'pointer'
 }

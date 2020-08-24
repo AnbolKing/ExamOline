@@ -6,14 +6,26 @@ import {
   middle,
   contentHeader,
   textStyle
-} from './style'
+} from './style';
+import store from '../../../../reducer/index';
+import emitter from '../../../../util/events';
 
 class IndexPage extends Component {
+
+  handleAddTitle = () => {
+    const action = {
+      type:'add_title',
+      page:5,
+    }
+    store.dispatch(action); 
+    emitter.emit('getPage');
+  }
+
   render() {
     return (
       <div className="indexBox">
         <div className="header" style={header}>
-          <Button className="addTitle" style={buttonStyle}>
+          <Button className="addTitle" style={buttonStyle} onClick={this.handleAddTitle}>
             添加题目
           </Button>
           <Button className="addExam" style={buttonStyle}>

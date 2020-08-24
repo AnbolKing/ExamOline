@@ -3,11 +3,13 @@ import {
   contentHeader,
   textStyle,
   buttonBox,
-  buttonStyle
+  buttonStyle,
+  contentHeaderStyle
 } from './style'
 import { Button, Dropdown, Menu } from 'antd'
 import { DownOutlined, ArrowRightOutlined } from '@ant-design/icons';
-
+import store from '../../../../reducer/index';
+import emitter from '../../../../util/events';
 
 class ExamManage extends Component {
   constructor(props) {
@@ -25,11 +27,30 @@ class ExamManage extends Component {
        )
     }
   }
+
+  handleLookExam = () => {
+    const action = {
+      type:'look_exam',
+      page:6,
+    }
+    store.dispatch(action);
+    emitter.emit('getPage');
+  }
+
+  handleCreateExam = () => {
+    const action = {
+      type:'create_exam',
+      page:7,
+    }
+    store.dispatch(action);
+    emitter.emit('getPage');
+  }
+
   render() {
     return (
       <div className="indexBox">
         <div className="buttonBox" style={buttonBox}>
-          <Button style={buttonStyle}>创建考试</Button>
+          <Button style={buttonStyle} onClick={this.handleCreateExam}>创建考试</Button>
           <Dropdown overlay={this.state.menu}>
             <Button style={buttonStyle}>
               试卷分类 <DownOutlined />
@@ -46,7 +67,7 @@ class ExamManage extends Component {
             <div style={textStyle}>考试时长</div>
             <div style={textStyle}>创建时间</div>
           </div>
-          <div className="content-body" style={contentHeader}>
+          <div className="content-body" style={contentHeaderStyle} onClick={this.handleLookExam}>
             <div style={textStyle}>研发组</div>
             <div style={textStyle}>古新宇</div>
             <div style={textStyle}>2020/8/22 18：00</div>
