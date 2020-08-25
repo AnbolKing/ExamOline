@@ -21,6 +21,15 @@ class IndexPage extends Component {
     emitter.emit('getPage');
   }
 
+  handleCreateExam = () => {
+    const action = {
+      type:'add_title',
+      page:7,
+    }
+    store.dispatch(action); 
+    emitter.emit('getPage');
+  }
+
   render() {
     return (
       <div className="indexBox">
@@ -28,7 +37,7 @@ class IndexPage extends Component {
           <Button className="addTitle" style={buttonStyle} onClick={this.handleAddTitle}>
             添加题目
           </Button>
-          <Button className="addExam" style={buttonStyle}>
+          <Button className="addExam" style={buttonStyle} onClick={this.handleCreateExam}>
             创建考试
           </Button>
         </div>

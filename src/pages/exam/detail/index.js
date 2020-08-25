@@ -11,7 +11,8 @@ import {
   buttonStyle,
   contentHeader,
   bodyHeader,
-  textStyle
+  textStyle,
+  textStyleTodo
 } from './style';
 import store from '../../../reducer/index';
 import emitter from '../../../util/events'
@@ -26,6 +27,25 @@ class ExamDetail extends Component {
     store.dispatch(action); 
     emitter.emit('getPage');
   }
+
+  handleCheck = () => {
+    const action = {
+      type:'check_exam',
+      page:8,
+    }
+    store.dispatch(action); 
+    emitter.emit('getPage');
+  }
+
+  handleCorrect = () => {
+    const action = {
+      type:'correct_exam',
+      page:9,
+    }
+    store.dispatch(action); 
+    emitter.emit('getPage');
+  }
+  
   render() {
     return (
       <div className="indexBox">
@@ -39,7 +59,7 @@ class ExamDetail extends Component {
           <div style={button3Style} className="people">
             <Button style={buttonStyle}>分配阅卷人</Button>
           </div>
-          <div style={button4Style} className="check">
+          <div style={button4Style} className="check" onClick={this.handleCorrect}>
             <Button style={buttonStyle}>统一开始批改</Button>
           </div>
         </div>
@@ -59,8 +79,8 @@ class ExamDetail extends Component {
             <div style={textStyle}>通过</div>
             <div style={textStyle}>100</div>
             <div style={textStyle}>已批改</div>
-            <div style={textStyle}>小眼睛</div>
-            <div style={textStyle}>小港币</div>
+            <div style={textStyleTodo} onClick={this.handleCheck}>小眼睛</div>
+            <div style={textStyleTodo}>小钢笔</div>
           </div>
         </div>
       </div>

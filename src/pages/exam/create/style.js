@@ -1,15 +1,20 @@
 export const headerStyle = {
-  width:'100%',
-  height:'50px',
+  width:'95%',
+  height:'100px',
   textAlign:'center',
-  lineHeight:'50px',
+  lineHeight:'100px',
   fontSize:'30px',
-  margin:'20px 0'
+  // border:'1px solid #000',
+  margin:'0 auto',
+  marginTop:'35px',
+  backgroundColor:'#1890ff',
+  borderRadius:'10px'
 }
 
 export const contentStyle = {
   width:'95%',
   margin:'0 auto',
+  marginTop:'35px'
 }
 
 export const typeStyle = {

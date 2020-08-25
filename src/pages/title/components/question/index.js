@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import {
   Input,
-  Button
+  Button,
+  Modal
 } from 'antd';
 import {
   textStyle,
   sbmitStyle,
   buttonStyle
 } from './style';
+import {
+  CheckCircleTwoTone 
+} from '@ant-design/icons'
 const { TextArea } = Input;
 
 class Question extends Component {
@@ -30,6 +34,19 @@ class Question extends Component {
       ansValue:value
     });
   };
+
+  handleContinue = () => {
+    Modal.confirm({
+      cancelText:'返回',
+      okText:'继续录入',
+      maskClosable:'false',
+      icon: <CheckCircleTwoTone twoToneColor="#52c41a" />,
+      closable:'false',
+      content:'试题录入成功！',
+      centered:'true',
+      onCancel:this.handleReturn
+    })
+  }
   
   render() {
     return (
@@ -50,7 +67,7 @@ class Question extends Component {
             value={this.state.ansValue}
           />
         </div>
-        <div className="button" style={sbmitStyle}>
+        <div className="button" style={sbmitStyle} onClick={this.handleContinue}>
           <Button type="primary" style={buttonStyle}>录 入</Button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import {
   Input,
   Checkbox,
   Tag,
+  Modal
 } from 'antd';
 import {
   textStyle,
@@ -13,7 +14,12 @@ import {
   sbmitStyle,
   buttonStyle
 } from './style';
+import {
+  CheckCircleTwoTone 
+} from '@ant-design/icons';
 import './style.css';
+import store from '../../../../reducer';
+import emitter from '../../../../util/events';
 const { TextArea } = Input;
 
 class Choose extends Component {
@@ -72,6 +78,28 @@ class Choose extends Component {
     })
   }
 
+  handleReturn = () => {
+    const action = {
+      type:'return_page',
+      page:2
+    }
+    store.dispatch(action);
+    emitter.emit('getPage');
+  }
+
+  handleContinue = () => {
+    Modal.confirm({
+      cancelText:'返回',
+      okText:'继续录入',
+      maskClosable:'false',
+      icon: <CheckCircleTwoTone twoToneColor="#52c41a" />,
+      closable:'false',
+      content:'试题录入成功！',
+      centered:'true',
+      onCancel:this.handleReturn
+    })
+  }
+
   render() {
     return (
       <div className="indexBox">
@@ -108,7 +136,7 @@ class Choose extends Component {
             </Checkbox.Group>
           </div>
         </div>
-        <div className="button" style={sbmitStyle}>
+        <div className="button" style={sbmitStyle} onClick={this.handleContinue}>
           <Button type="primary" style={buttonStyle}>录 入</Button>
         </div>
       </div>

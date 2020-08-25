@@ -27,5 +27,17 @@ export default (state=defaultState,action) => {
     newState.page = action.page;
     return newState;
   }
+  if(action.type === 'check_exam') {
+    console.log(action);
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.page = action.page;
+    return newState;
+  }
+  if(action.type === 'correct_exam') {
+    console.log(action);
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.page = action.page;
+    return newState;
+  }
   return state;
 }

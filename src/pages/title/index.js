@@ -15,10 +15,10 @@ class Title extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       classifiction:['选择分类','分类一','分类二','创新分类'],
+       classifiction:['选择分类','研发组','产品组','设计组','运营组','行政组'],
        titleType:['选择题型','选择题','填空题','问答题','作图题','判断题'],
        classKey:0,
-       titleKey:1,
+       titleKey:2,
     }
     this.handleChangeClass = this.handleChangeClass.bind(this);
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
@@ -68,13 +68,19 @@ class Title extends Component {
           <Dropdown overlay={
             <Menu onClick={this.handleChangeTitle}>
               <Menu.Item key="1" icon={<ArrowRightOutlined />}>
-                分类一
+                研发组
               </Menu.Item>
               <Menu.Item key="2" icon={<ArrowRightOutlined />}>
-                分类二
+                产品组
               </Menu.Item>
               <Menu.Item key="3" icon={<ArrowRightOutlined />}>
-                创建新分类
+                设计组
+              </Menu.Item>
+              <Menu.Item key="4" icon={<ArrowRightOutlined />}>
+                运营组
+              </Menu.Item>
+              <Menu.Item key="5" icon={<ArrowRightOutlined />}>
+                行政组
               </Menu.Item>
             </Menu>
           }

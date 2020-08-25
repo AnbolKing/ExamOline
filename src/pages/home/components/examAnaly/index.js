@@ -14,25 +14,42 @@ class ExamAnaly extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menu: (
-       <Menu>
-         <Menu.Item key="1" icon={<ArrowRightOutlined />}>
-           分类一
-         </Menu.Item>
-         <Menu.Item key="2" icon={<ArrowRightOutlined />}>
-           分类二
-         </Menu.Item>
-       </Menu>
-      )
+      classifiction:['选择分类','研发组','产品组','设计组','运营组','行政组'],
+      classKey:0,
     }
   }
+
+  handleChangeTitle = (event) => {
+    this.setState({
+      classKey:parseInt(event.key)
+    })
+  }
+
   render() {
     return (
       <div className="indexBox">
         <div className="buttonBox" style={buttonBox}>
-          <Dropdown overlay={this.state.menu}>
+          <Dropdown overlay={
+            <Menu onClick={this.handleChangeTitle}>
+              <Menu.Item key="1" icon={<ArrowRightOutlined />}>
+                研发组
+              </Menu.Item>
+              <Menu.Item key="2" icon={<ArrowRightOutlined />}>
+                产品组
+              </Menu.Item>
+              <Menu.Item key="3" icon={<ArrowRightOutlined />}>
+                设计组
+              </Menu.Item>
+              <Menu.Item key="4" icon={<ArrowRightOutlined />}>
+                运营组
+              </Menu.Item>
+              <Menu.Item key="5" icon={<ArrowRightOutlined />}>
+                行政组
+              </Menu.Item>
+            </Menu>
+          }>
             <Button style={buttonStyle}>
-              题目查看分类 <DownOutlined />
+            {(this.state.classifiction)[this.state.classKey]} <DownOutlined />
             </Button>
           </Dropdown>
           <Input

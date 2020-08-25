@@ -64,7 +64,7 @@ class CreateExam extends Component {
     return (
       <div className="indexBox">
         <div className="header-text" style={headerStyle}>
-          选择题目
+          从题库中选择题目
         </div>
         <div className="content" style={contentStyle}>
           <div className="type" style={typeStyle}>

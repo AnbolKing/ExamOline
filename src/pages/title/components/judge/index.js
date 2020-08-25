@@ -3,6 +3,7 @@ import {
   Input,
   Button,
   Checkbox,
+  Modal
 } from 'antd';
 import {
   textStyle,
@@ -11,7 +12,10 @@ import {
   boxStyle,
   groupStyle,
   checkStyle
-} from './style'
+} from './style';
+import {
+  CheckCircleTwoTone 
+} from '@ant-design/icons'
 const { TextArea } = Input;
 
 class Judge extends Component {
@@ -33,6 +37,19 @@ class Judge extends Component {
     console.log(event);
     this.setState({
       choseList:event
+    })
+  }
+
+  handleContinue = () => {
+    Modal.confirm({
+      cancelText:'返回',
+      okText:'继续录入',
+      maskClosable:'false',
+      icon: <CheckCircleTwoTone twoToneColor="#52c41a" />,
+      closable:'false',
+      content:'试题录入成功！',
+      centered:'true',
+      onCancel:this.handleReturn
     })
   }
   
@@ -57,7 +74,7 @@ class Judge extends Component {
             </div>
           </Checkbox.Group>
         </div>
-        <div className="button" style={sbmitStyle}>
+        <div className="button" style={sbmitStyle} onClick={this.handleContinue}>
           <Button type="primary" style={buttonStyle}>录 入</Button>
         </div>
       </div>

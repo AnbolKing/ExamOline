@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
   Input,
-  Button
+  Button,
+  Modal
 } from 'antd';
 import {
   textStyle,
@@ -12,6 +13,9 @@ import {
   ansbuttonStyle,
   itemStyle
 } from './style';
+import {
+  CheckCircleTwoTone 
+} from '@ant-design/icons'
 const { TextArea } = Input;
 
 class Tiankong extends Component {
@@ -38,10 +42,31 @@ class Tiankong extends Component {
     })
   }
 
-    //TODO 绑定输入框内容
-  handleChangeAns = ({ target: { value,key } }) => {
-    console.log(value,key);
-  };
+  // TODO 绑定输入框内容
+  handleChangeAns = ({ target: { value,placeholder } }) => {
+    console.log(value,placeholder);
+    const index = placeholder.match(/\d/);
+    const id = index[0];
+    const obj = Object.assign({}, this.state.ansValue);
+    obj[id] = value;
+    this.setState({
+      ansValue:obj,
+    })
+  }
+
+  handleContinue = () => {
+    console.log(this.state.ansValue);
+    Modal.confirm({
+      cancelText:'返回',
+      okText:'继续录入',
+      maskClosable:'false',
+      icon: <CheckCircleTwoTone twoToneColor="#52c41a" />,
+      closable:'false',
+      content:'试题录入成功！',
+      centered:'true',
+      onCancel:this.handleReturn
+    })
+  }
 
   render() {
     return (
@@ -58,7 +83,7 @@ class Tiankong extends Component {
           {
             this.state.ansNum.map((item => {
               return (
-                <TextArea placeholder={'答案'+item} autoSize key={item} style={itemStyle} onChange={this.handleChangeAns}/>
+                <TextArea placeholder={'答案'+item} autoSize key={item} style={itemStyle} onBlur={this.handleChangeAns}/>
               )
             }))
           }
@@ -66,7 +91,7 @@ class Tiankong extends Component {
         <div className="addAns" style={addansStyle}>
           <Button type="primary" style={ansbuttonStyle} onClick={this.handleAddAns}>添加答案</Button>
         </div>
-        <div className="button" style={sbmitStyle}>
+        <div className="button" style={sbmitStyle} onClick={this.handleContinue}>
           <Button type="primary" style={buttonStyle}>录 入</Button>
         </div>
       </div>

@@ -52,3 +52,9 @@ export const bodyHeader = {
   height:'50px',
   borderBottom:'1px solid #000',
 }
+
+export const textStyleTodo = {
+  flex:'1',
+  textAlign:'center',
+  cursor:'pointer'
+}
