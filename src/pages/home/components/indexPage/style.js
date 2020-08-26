@@ -28,7 +28,8 @@ export const contentHeader = {
   justifyContent:'space-around',
   alignItems:'center',
   height:'50px',
-  borderBottom:'1px solid #000'
+  borderBottom:'1px solid #000',
+  cursor:'pointer'
 }
 
 export const textStyle = {

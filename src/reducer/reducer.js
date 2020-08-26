@@ -39,5 +39,23 @@ export default (state=defaultState,action) => {
     newState.page = action.page;
     return newState;
   }
+  if(action.type === 'look_task') {
+    console.log(action);
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.page = action.page;
+    return newState;
+  }
+  if(action.type === 'show_grade') {
+    console.log(action);
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.page = action.page;
+    return newState;
+  }
+  if(action.type === 'show_exam') {
+    console.log(action);
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.page = action.page;
+    return newState;
+  }
   return state;
 }

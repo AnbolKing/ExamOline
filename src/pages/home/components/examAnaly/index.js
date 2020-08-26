@@ -9,6 +9,8 @@ import {
 } from './style';
 import { Button, Dropdown, Menu, Input} from 'antd';
 import { DownOutlined, ArrowRightOutlined, SearchOutlined } from '@ant-design/icons';
+import store from '../../../../reducer/index';
+import emitter from '../../../../util/events';
 
 class ExamAnaly extends Component {
   constructor(props) {
@@ -23,6 +25,15 @@ class ExamAnaly extends Component {
     this.setState({
       classKey:parseInt(event.key)
     })
+  }
+
+  handleGrade = () => {
+    const action = {
+      type:'show_grade',
+      page:11
+    }
+    store.dispatch(action);
+    emitter.emit('getPage');
   }
 
   render() {
@@ -67,13 +78,15 @@ class ExamAnaly extends Component {
             <div style={textStyle}>考试时长</div>
             <div style={textStyle}>创建时间</div>
           </div>
-          <div className="content-body" style={bodyHeader}>
-            <div style={textStyle}>研发组</div>
-            <div style={textStyle}>古新宇</div>
-            <div style={textStyle}>2020/8/22 18：00</div>
-            <div style={textStyle}>2020/8/22 20：00</div>
-            <div style={textStyle}>两小时</div>
-            <div style={textStyle}>2020/8/22 15；00</div>
+          <div className="content">
+            <div className="content-body" style={bodyHeader} onClick={this.handleGrade}>
+              <div style={textStyle}>研发组</div>
+              <div style={textStyle}>古新宇</div>
+              <div style={textStyle}>2020/8/22 18：00</div>
+              <div style={textStyle}>2020/8/22 20：00</div>
+              <div style={textStyle}>两小时</div>
+              <div style={textStyle}>2020/8/22 15；00</div>
+            </div>
           </div>
         </div>
       </div>

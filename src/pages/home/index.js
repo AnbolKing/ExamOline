@@ -16,6 +16,9 @@ import ExamDetail from '../exam/detail/index';
 import CreateExam from '../exam/create/index';
 import CheckExam from '../exam/check/index';
 import CorrectExam from '../exam/correct/index';
+import LookTask from '../exam/task/index';
+import LookExam from '../exam/look/index';
+import ShowGrade from '../grade/index';
 import store from '../../reducer/index';
 import emitter from '../../util/events';
 const { Header, Content, Footer, Sider } = Layout;
@@ -25,7 +28,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page:5,
+      page:12,
     }
     this.handleChangePage = this.handleChangePage.bind(this);
     this.handleShowPage = this.handleShowPage.bind(this);
@@ -100,6 +103,21 @@ class Home extends Component {
     if(index === 9) {
       return (
         <CorrectExam />
+      )
+    }
+    if(index === 10) {
+      return (
+        <LookTask />
+      )
+    }
+    if(index === 11) {
+      return (
+        <ShowGrade />
+      )
+    }
+    if(index === 12) {
+      return (
+        <LookExam />
       )
     }
   }

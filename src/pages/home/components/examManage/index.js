@@ -83,13 +83,23 @@ class ExamManage extends Component {
             <div style={textStyle}>考试时长</div>
             <div style={textStyle}>创建时间</div>
           </div>
-          <div className="content-body" style={contentHeaderStyle} onClick={this.handleLookExam}>
-            <div style={textStyle}>研发组</div>
-            <div style={textStyle}>古新宇</div>
-            <div style={textStyle}>2020/8/22 18：00</div>
-            <div style={textStyle}>2020/8/22 20：00</div>
-            <div style={textStyle}>两小时</div>
-            <div style={textStyle}>2020/8/22 15；00</div>
+          <div className="content">
+            <div className="content-body" style={contentHeaderStyle} onClick={this.handleLookExam}>
+              <div style={textStyle}>研发组</div>
+              <div style={textStyle}>古新宇</div>
+              <div style={textStyle}>2020/8/22 18：00</div>
+              <div style={textStyle}>2020/8/22 20：00</div>
+              <div style={textStyle}>两小时</div>
+              <div style={textStyle}>2020/8/22 15：00</div>
+            </div>
+            <div className="content-body" style={contentHeaderStyle} onClick={this.handleLookExam}>
+              <div style={textStyle}>研发组</div>
+              <div style={textStyle}>古新宇</div>
+              <div style={textStyle}>2020/8/22 18：00</div>
+              <div style={textStyle}>2020/8/22 20：00</div>
+              <div style={textStyle}>两小时</div>
+              <div style={textStyle}>2020/8/22 15：00</div>
+            </div>
           </div>
         </div>
       </div>

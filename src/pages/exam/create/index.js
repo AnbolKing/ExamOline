@@ -12,7 +12,9 @@ import {
 import {
   InputNumber,
   Button
-} from 'antd'
+} from 'antd';
+import store from '../../../reducer/index';
+import emitter from '../../../util/events';
 
 class CreateExam extends Component {
   constructor(props) {
@@ -58,6 +60,15 @@ class CreateExam extends Component {
     this.setState({
       titleList:obj
     })
+  }
+
+  handleShowExam = () => {
+    const action = {
+      type:'look_exam',
+      page:12,
+    }
+    store.dispatch(action); 
+    emitter.emit('getPage');
   }
   //=================================//
   render() {
@@ -123,7 +134,7 @@ class CreateExam extends Component {
             </div>
           </div>
         </div>
-        <div className="button" style={buttonBoxStyle}>
+        <div className="button" style={buttonBoxStyle} onClick={this.handleShowExam}>
           <Button style={buttonStyle}>生成试卷</Button>
         </div>
       </div>

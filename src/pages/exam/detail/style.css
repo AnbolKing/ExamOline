@@ -1,0 +1,39 @@
+.mymodal .ant-modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.mymodal .ant-modal-header {
+    text-align: center;
+}
+
+.mymodal .ant-modal-body {
+    display: none;
+}
+
+.mymodal .ant-modal-footer {
+    padding-top: 50px;
+}
+
+.mymodal .ant-modal-footer .ant-btn {
+    flex: 1;
+    height: 100px
+}
+
+.mymodal .ant-modal-content {
+    height: 300px
+}
+
+.mydrawer-ave label {
+    margin: 20px 0
+}
+
+.mydrawer-ave .ant-drawer-footer .button-box {
+    display: flex;
+    justify-content: center;
+}
+
+.mydrawer-pre .ant-drawer-footer .button-box {
+    display: flex;
+    justify-content: center;
+}

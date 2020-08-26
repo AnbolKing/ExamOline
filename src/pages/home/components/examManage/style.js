@@ -4,6 +4,7 @@ export const contentHeader = {
   alignItems:'center',
   height:'50px',
   borderBottom:'1px solid #000',
+  borderTop:'1px solid #000',
 }
 
 export const contentHeaderStyle = {
@@ -12,7 +13,7 @@ export const contentHeaderStyle = {
   alignItems:'center',
   height:'50px',
   borderBottom:'1px solid #000',
-  borderTop:'1px solid #000',
+  // borderTop:'1px solid #000',
   cursor:'pointer'
 }
 

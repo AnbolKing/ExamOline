@@ -18,8 +18,8 @@ import {
   CheckCircleTwoTone 
 } from '@ant-design/icons';
 import './style.css';
-import store from '../../../../reducer';
-import emitter from '../../../../util/events';
+// import store from '../../../../reducer';
+// import emitter from '../../../../util/events';
 const { TextArea } = Input;
 
 class Choose extends Component {
@@ -79,12 +79,13 @@ class Choose extends Component {
   }
 
   handleReturn = () => {
-    const action = {
-      type:'return_page',
-      page:2
-    }
-    store.dispatch(action);
-    emitter.emit('getPage');
+    // const action = {
+    //   type:'return_page',
+    //   page:2
+    // }
+    // store.dispatch(action);
+    // emitter.emit('getPage');
+    
   }
 
   handleContinue = () => {

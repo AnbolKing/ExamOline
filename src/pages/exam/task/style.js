@@ -58,15 +58,3 @@ export const textStyleTodo = {
   textAlign:'center',
   cursor:'pointer'
 }
-
-export const paperStyle = {
-  margin:'20px auto',
-}
-
-export const itemStyle = {
-  margin:'30px 0',
-}
-
-export const nameStyle = {
-  marginRight:'20px'
-}
