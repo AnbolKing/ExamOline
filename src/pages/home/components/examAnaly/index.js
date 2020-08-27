@@ -78,7 +78,7 @@ class ExamAnaly extends Component {
             <div style={textStyle}>考试时长</div>
             <div style={textStyle}>创建时间</div>
           </div>
-          <div className="content">
+          <div className="content-body">
             <div className="content-body" style={bodyHeader} onClick={this.handleGrade}>
               <div style={textStyle}>研发组</div>
               <div style={textStyle}>古新宇</div>
