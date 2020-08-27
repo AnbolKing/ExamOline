@@ -21,6 +21,7 @@ import Choose from '../../title/components/choose';
 import Tiankong from '../../title/components/tiankong/index';
 import Question from '../../title/components/question/index';
 import Judge from '../../title/components/judge/index';
+import Pic from '../../title/components/pic/index';
 
 class LookExam extends Component {
   constructor(props) {
@@ -59,6 +60,11 @@ class LookExam extends Component {
     if(this.state.titleKey === 3) {
       return (
         <Question />
+      )
+    }
+    if(this.state.titleKey === 4) {
+      return (
+        <Pic />
       )
     }
     if(this.state.titleKey === 5) {

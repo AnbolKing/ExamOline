@@ -18,12 +18,16 @@ class ExamAnaly extends Component {
     this.state = {
       classifiction:['选择分类','研发组','产品组','设计组','运营组','行政组'],
       classKey:0,
+      searchStyle:{
+        flex:'1',
+        textAlign:'center'
+      }
     }
   }
 
   handleChangeTitle = (event) => {
     this.setState({
-      classKey:parseInt(event.key)
+      classKey:parseInt(event.key),
     })
   }
 
@@ -34,6 +38,33 @@ class ExamAnaly extends Component {
     }
     store.dispatch(action);
     emitter.emit('getPage');
+  }
+
+  handleSearch = ({target:{ value }}) => {
+    let doms = document.getElementsByClassName('class-type');
+    if(value === '') {
+      for(let i=0;i<doms.length;i++) {
+        doms[i].style.color = '';
+        doms[i].style.fontSize = '';
+        doms[i].style.fontWeight = '';
+      }
+      return ;
+    }
+    // console.log(doms);
+    for(let i=0;i<doms.length;i++) {
+      if(doms[i].innerText.indexOf(value) !== -1) {
+        doms[i].style.color = '#65d1fc';
+        doms[i].style.fontSize = '20px';
+        doms[i].style.fontWeight = '600';
+        return ;
+      }
+    }
+    for(let i=0;i<doms.length;i++) {
+      doms[i].style.color = '';
+      doms[i].style.fontSize = '';
+      doms[i].style.fontWeight = '';
+    }
+    return ;
   }
 
   render() {
@@ -60,13 +91,14 @@ class ExamAnaly extends Component {
             </Menu>
           }>
             <Button style={buttonStyle}>
-            {(this.state.classifiction)[this.state.classKey]} <DownOutlined />
+              {(this.state.classifiction)[this.state.classKey]} <DownOutlined />
             </Button>
           </Dropdown>
           <Input
             placeholder="请输入类型"
             suffix={<SearchOutlined />}
             style={inputStyle}
+            onChange={this.handleSearch}
           />
         </div>
         <div className="content">
@@ -80,7 +112,39 @@ class ExamAnaly extends Component {
           </div>
           <div className="content-body">
             <div className="content-body" style={bodyHeader} onClick={this.handleGrade}>
-              <div style={textStyle}>研发组</div>
+              <div className="class-type" style={textStyle}>研发组</div>
+              <div style={textStyle}>古新宇</div>
+              <div style={textStyle}>2020/8/22 18：00</div>
+              <div style={textStyle}>2020/8/22 20：00</div>
+              <div style={textStyle}>两小时</div>
+              <div style={textStyle}>2020/8/22 15；00</div>
+            </div>
+            <div className="content-body" style={bodyHeader} onClick={this.handleGrade}>
+              <div className="class-type" style={this.state.searchStyle}>产品组</div>
+              <div style={textStyle}>古新宇</div>
+              <div style={textStyle}>2020/8/22 18：00</div>
+              <div style={textStyle}>2020/8/22 20：00</div>
+              <div style={textStyle}>两小时</div>
+              <div style={textStyle}>2020/8/22 15；00</div>
+            </div>
+            <div className="content-body" style={bodyHeader} onClick={this.handleGrade}>
+              <div className="class-type" style={this.state.searchStyle}>运营组</div>
+              <div style={textStyle}>古新宇</div>
+              <div style={textStyle}>2020/8/22 18：00</div>
+              <div style={textStyle}>2020/8/22 20：00</div>
+              <div style={textStyle}>两小时</div>
+              <div style={textStyle}>2020/8/22 15；00</div>
+            </div>
+            <div className="content-body" style={bodyHeader} onClick={this.handleGrade}>
+              <div className="class-type" style={this.state.searchStyle}>设计组</div>
+              <div style={textStyle}>古新宇</div>
+              <div style={textStyle}>2020/8/22 18：00</div>
+              <div style={textStyle}>2020/8/22 20：00</div>
+              <div style={textStyle}>两小时</div>
+              <div style={textStyle}>2020/8/22 15；00</div>
+            </div>
+            <div className="content-body" style={bodyHeader} onClick={this.handleGrade}>
+              <div className="class-type" style={this.state.searchStyle}>行政组</div>
               <div style={textStyle}>古新宇</div>
               <div style={textStyle}>2020/8/22 18：00</div>
               <div style={textStyle}>2020/8/22 20：00</div>

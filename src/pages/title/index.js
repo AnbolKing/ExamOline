@@ -10,6 +10,7 @@ import Choose from './components/choose/index';
 import Tiankong from './components/tiankong/index';
 import Question from './components/question/index';
 import Judge from './components/judge/index';
+import Pic from './components/pic/index';
 
 class Title extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Title extends Component {
        classifiction:['选择分类','研发组','产品组','设计组','运营组','行政组'],
        titleType:['选择题型','选择题','填空题','问答题','作图题','判断题'],
        classKey:0,
-       titleKey:2,
+       titleKey:4,
     }
     this.handleChangeClass = this.handleChangeClass.bind(this);
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
@@ -40,6 +41,11 @@ class Title extends Component {
     if(index === 3) {
       return (
         <Question />
+      )
+    }
+    if(index === 4) {
+      return (
+        <Pic />
       )
     }
     if(index === 5) {

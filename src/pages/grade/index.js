@@ -13,6 +13,8 @@ import {
 } from 'antd';
 import TitleAnaly from './components/title/index';
 import ResultAnaly from './components/result/index';
+import store from '../../reducer/index';
+import emitter from '../../util/events';
 
 class ShowGrade extends Component {
   constructor(props) {
@@ -42,12 +44,21 @@ class ShowGrade extends Component {
       index:2,
     })
   }
+
+  handleReturn = () => {
+    const action = {
+      type:'return_page',
+      page:4
+    }
+    store.dispatch(action);
+    emitter.emit('getPage');
+  }
   
   render() {
     return (
       <div className="indexBox">
         <div className="header" style={headerStyle}>
-          <div className="return" style={returnStyle}>
+          <div className="return" style={returnStyle} onClick={this.handleReturn}>
             <Button type="default" style={buttonStyle}>返回</Button>
           </div>
           <div className="info" style={infoStyle}>
