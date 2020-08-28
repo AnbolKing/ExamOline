@@ -48,7 +48,7 @@ class Home extends Component {
 
   handleChangePage(event) {
     const action = {
-      type:'add_title',
+      type:'change_page',
       page:parseInt(event.key),
     }
     store.dispatch(action); 
@@ -136,7 +136,7 @@ class Home extends Component {
               console.log(collapsed, type);
             }}
           >
-            <Menu theme="light" mode="inline" defaultSelectedKeys={['2']} onClick={this.handleChangePage}>
+            <Menu theme="light" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleChangePage}>
               <Menu.Item key="1" icon={<SnippetsOutlined />}>
                 首页
               </Menu.Item>

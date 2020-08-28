@@ -15,7 +15,9 @@ import {
 } from './style';
 import {
   CheckCircleTwoTone 
-} from '@ant-design/icons'
+} from '@ant-design/icons';
+import store from '../../../../reducer';
+import emitter from '../../../../util/events';
 const { TextArea } = Input;
 
 class Tiankong extends Component {
@@ -41,8 +43,7 @@ class Tiankong extends Component {
       ansNum:[...this.state.ansNum,newNum]
     })
   }
-
-  // TODO 绑定输入框内容
+  
   handleChangeAns = ({ target: { value,placeholder } }) => {
     console.log(value,placeholder);
     const index = placeholder.match(/\d/);
@@ -54,8 +55,19 @@ class Tiankong extends Component {
     })
   }
 
+  handleReturn = () => {
+    const action = {
+      type:'return_page',
+      page:2
+    }
+    store.dispatch(action);
+    emitter.emit('getPage');
+  }
+
   handleContinue = () => {
-    console.log(this.state.ansValue);
+    // console.log(store.getState().classId); 组别
+    // console.log(this.state.textValue);  题目信息
+    // console.log(this.state.ansValue);   正确答案
     Modal.confirm({
       cancelText:'返回',
       okText:'继续录入',

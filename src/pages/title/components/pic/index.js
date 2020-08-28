@@ -9,6 +9,8 @@ import {
   message
 } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
+// import store from '../../../../reducer';
+// import emitter from '../../../../util/events';
 const { TextArea } = Input;
 const { Dragger } = Upload;
 

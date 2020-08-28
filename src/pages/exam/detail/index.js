@@ -39,6 +39,30 @@ class ExamDetail extends Component {
     }
   }
   
+  componentDidMount() {
+    let id = store.getState().detailId;
+    //TODO 发送请求-根据id获取考试具体信息
+    if(id === 1) {
+      //研发组
+      console.log('研发组');
+    }
+    if(id === 2) {
+      //产品组
+      console.log('产品组');
+    }
+    if(id === 3) {
+      //设计组
+      console.log('设计组');
+    }
+    if(id === 4) {
+      //运营组
+      console.log('运营组');
+    }
+    if(id === 5) {
+      //行政组
+      console.log('行政组');
+    }
+  }
 
   handleReturn = () => {
     const action = {
@@ -198,7 +222,7 @@ class ExamDetail extends Component {
             {
               this.state.list.map((item,index) => {
                 return (
-                  <div className="item" style={itemStyle}>
+                  <div className="item" style={itemStyle} key={index}>
                     <span className='name' style={nameStyle}>{item}</span>
                       <TextArea placeholder={'空'+(index+1)} autoSize onBlur={this.handleGetPre}/>
                   </div>

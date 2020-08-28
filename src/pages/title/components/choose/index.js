@@ -18,8 +18,8 @@ import {
   CheckCircleTwoTone 
 } from '@ant-design/icons';
 import './style.css';
-// import store from '../../../../reducer';
-// import emitter from '../../../../util/events';
+import store from '../../../../reducer';
+import emitter from '../../../../util/events';
 const { TextArea } = Input;
 
 class Choose extends Component {
@@ -79,16 +79,19 @@ class Choose extends Component {
   }
 
   handleReturn = () => {
-    // const action = {
-    //   type:'return_page',
-    //   page:2
-    // }
-    // store.dispatch(action);
-    // emitter.emit('getPage');
-    
+    const action = {
+      type:'return_page',
+      page:2
+    }
+    store.dispatch(action);
+    emitter.emit('getPage');
   }
 
   handleContinue = () => {
+    // console.log(store.getState().classId); 组别
+    // console.log(this.state.answerList);  题目答案
+    // console.log(this.state.choseList);  正确答案
+    //TODO 发送请求-给后端题目等数据
     Modal.confirm({
       cancelText:'返回',
       okText:'继续录入',

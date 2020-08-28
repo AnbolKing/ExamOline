@@ -26,10 +26,12 @@ class ExamManage extends Component {
     })
   }
 
-  handleLookExam = () => {
+  //通过map得到item里的id作为参数传递给handleDetail函数赋值给id
+  handleLookExam = (item) => {
     const action = {
-      type:'look_exam',
+      type:'exam_detail',
       page:6,
+      id:item
     }
     store.dispatch(action);
     emitter.emit('getPage');
@@ -83,8 +85,8 @@ class ExamManage extends Component {
             <div style={textStyle}>考试时长</div>
             <div style={textStyle}>创建时间</div>
           </div>
-          <div className="content">
-            <div className="content-body" style={contentHeaderStyle} onClick={this.handleLookExam}>
+          <div className="container">
+            <div className="content-body" style={contentHeaderStyle} onClick={() => {this.handleLookExam(1)}}>
               <div style={textStyle}>研发组</div>
               <div style={textStyle}>古新宇</div>
               <div style={textStyle}>2020/8/22 18：00</div>
@@ -92,12 +94,12 @@ class ExamManage extends Component {
               <div style={textStyle}>两小时</div>
               <div style={textStyle}>2020/8/22 15：00</div>
             </div>
-            <div className="content-body" style={contentHeaderStyle} onClick={this.handleLookExam}>
-              <div style={textStyle}>研发组</div>
-              <div style={textStyle}>古新宇</div>
+            <div className="content-body" style={contentHeaderStyle} onClick={() => {this.handleLookExam(2)}}>
+              <div style={textStyle}>产品组</div>
+              <div style={textStyle}>苟冰玥</div>
               <div style={textStyle}>2020/8/22 18：00</div>
               <div style={textStyle}>2020/8/22 20：00</div>
-              <div style={textStyle}>两小时</div>
+              <div style={textStyle}>一小时半</div>
               <div style={textStyle}>2020/8/22 15：00</div>
             </div>
           </div>
@@ -108,4 +110,3 @@ class ExamManage extends Component {
 }
 
 export default ExamManage;
-//TODO 补充子路由

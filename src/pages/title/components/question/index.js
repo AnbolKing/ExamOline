@@ -11,7 +11,9 @@ import {
 } from './style';
 import {
   CheckCircleTwoTone 
-} from '@ant-design/icons'
+} from '@ant-design/icons';
+import store from '../../../../reducer';
+import emitter from '../../../../util/events';
 const { TextArea } = Input;
 
 class Question extends Component {
@@ -35,7 +37,20 @@ class Question extends Component {
     });
   };
 
+  handleReturn = () => {
+    const action = {
+      type:'return_page',
+      page:2
+    }
+    store.dispatch(action);
+    emitter.emit('getPage');
+  }
+
   handleContinue = () => {
+    //TODO 发送请求
+    // console.log(store.getState().classId);  组别
+    // console.log(this.state.textValue);  题目信息
+    // console.log(this.state.ansValue);   正确答案
     Modal.confirm({
       cancelText:'返回',
       okText:'继续录入',
