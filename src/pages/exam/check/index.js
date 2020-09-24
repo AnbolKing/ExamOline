@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import store from '../../../reducer/index';
 import emitter from '../../../util/events'
-import {
-  titleStyle,
-  itemStyle,
-  boxStyle,
-  infoStyle,
-  recordStyle,
-  buttonStyle,
-  detailStyle,
-  textStyle,
-  priStyle,
-} from './style';
+import './style.css';
 import {
   Button,
   Modal,
-  Table
+  Table,
+  Layout,
+  Card
 } from 'antd';
+const { Content, Sider} = Layout;
 
 class CheckExam extends Component {
   constructor(props) {
@@ -68,50 +61,74 @@ class CheckExam extends Component {
     ]
     Modal.info({
       content:(
-        <Table dataSource={this.state.dataSource} columns={columns} />
+        <Table 
+          dataSource={this.state.dataSource} 
+          columns={columns} 
+          pagination={false}
+        />
       ),
-      maskClosable:'true'
+      maskClosable:'true',
+      icon:null
     });
   }
 
   render() {
     return (
-      <div className="indexBox" style={boxStyle}>
-        <div className="title" style={titleStyle}>
-          <div className="titleOne" style={itemStyle}>
-            题目一
-            <div className="record" style={recordStyle} onClick={this.handleRecord}>
-              判卷记录
+      <div className="index-box">
+        <Layout>
+          <Content className="content">
+            <Card
+              actions={[
+                <div className="action-log" onClick={this.handleRecord}>
+                  判卷记录
+                </div>
+              ]}
+            >
+              <div className="title-content">
+                请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
+              </div>
+            </Card>
+            <Card
+              actions={[
+                <div className="action-log" onClick={this.handleRecord}>
+                  判卷记录
+                </div>
+              ]}
+            >
+              <div className="title-content">
+                请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
+              </div>
+            </Card>
+            <Card
+              actions={[
+                <div className="action-log" onClick={this.handleRecord}>
+                  判卷记录
+                </div>
+              ]}
+            >
+              <div className="title-content">
+                请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
+              </div>
+            </Card>
+          </Content>
+          <Sider className="slider">
+            <div className="slider-content">
+              <div className="button-one">
+                <Button className="judge">批改试卷</Button>
+              </div>
+              <div className="person-info">
+                <div className="name info-item">考生姓名</div>
+                <div className="grade info-item">得分</div>
+                <div className="rank info-item">等级</div>
+                <div className="result info-item">最终结果</div>
+              </div>
+              <div className="button-box">
+                <Button className="button-item">上一个</Button>
+                <Button className="button-item">下一个</Button>
+              </div>
             </div>
-          </div>
-          <div className="titleOne" style={itemStyle}>
-            题目二
-            <div className="record" style={recordStyle} onClick={this.handleRecord}>
-              判卷记录
-            </div>
-          </div>
-          <div className="titleOne" style={itemStyle}>
-            题目三
-            <div className="record" style={recordStyle} onClick={this.handleRecord}>
-              判卷记录
-            </div>
-          </div>
-        </div>
-        <div className="info" style={infoStyle}>
-          <div className="button" onClick={this.handleCorrect}>
-            <Button type="default" style={priStyle}>开始批改</Button>
-          </div>
-          <div className="infoDetail" style={detailStyle}>
-            <div className="name" style={textStyle}>考生姓名</div>
-            <div className="grade" style={textStyle}>得分</div>
-            <div className="rank" style={textStyle}>等级</div>
-            <div className="result" style={textStyle}>最终结果</div>
-          </div>
-          <div className="button" style={buttonStyle}>
-            <Button type="default" style={priStyle}>上一个</Button>
-            <Button type="default" style={priStyle}>下一个</Button>
-          </div>
-        </div>
+          </Sider>
+        </Layout>
       </div>
     )
   }

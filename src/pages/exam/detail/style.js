@@ -4,7 +4,6 @@ export const headerStyle = {
   display:'flex',
   justifyContent:'center',
   alignItems:'center',
-  borderBottom:'1px solid #000'
 }
 
 export const button1Style = {

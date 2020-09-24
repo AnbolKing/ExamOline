@@ -28,7 +28,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page:5,
+      page:8,
     }
     this.handleChangePage = this.handleChangePage.bind(this);
     this.handleShowPage = this.handleShowPage.bind(this);
