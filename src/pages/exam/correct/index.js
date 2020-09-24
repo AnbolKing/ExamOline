@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
-import {
-  titleStyle,
-  itemStyle,
-  boxStyle,
-  infoStyle,
-  recordStyle,
-  buttonStyle,
-  detailStyle,
-  textStyle,
-  priStyle,
-  gradeStyle,
-  timeStyle,
-  descStyle
-} from './style';
+import './style.css';
 import {
   Button,
   Modal,
   Table,
+  Layout,
   InputNumber,
-  Checkbox
+  Checkbox, 
+  Card
 } from 'antd';
 import './style.css';
+const { Content, Sider} = Layout;
 
 class CorrectExam extends Component {
   constructor(props) {
@@ -71,16 +61,102 @@ class CorrectExam extends Component {
     ]
     Modal.info({
       content:(
-        <Table dataSource={this.state.dataSource} columns={columns} />
+        <Table 
+          dataSource={this.state.dataSource} 
+          columns={columns} 
+          pagination={false}
+        />
       ),
-      maskClosable:'true'
+      maskClosable:'true',
+      icon:null,
     });
   }
 
   render() {
     return (
-      <div className="indexBox" style={boxStyle}>
-        <div className="title" style={titleStyle}>
+      <div className="index-box">
+        <Layout>
+          <Content className="content">
+            <Card
+              actions={[
+                <div>
+                  <div className="user user-time">
+                    <p>本题所用时长</p>
+                    <span>4.8 min</span>
+                  </div>
+                </div>,
+                <div className="user user-grade">
+                  <p>输入得分</p><span>&nbsp;&nbsp;</span><InputNumber min={0} max={100} defaultValue={0}/>
+                </div>,
+                <div className="user user-judge" onClick={this.handleRecord}>
+                  <p>判卷记录</p>
+                </div>,
+              ]}
+            >
+              <div className="title-content">
+                请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
+              </div>
+            </Card>
+            <Card
+              actions={[
+                <div>
+                  <div className="user user-time">
+                    <p>本题所用时长</p>
+                    <span>4.8 min</span>
+                  </div>
+                </div>,
+                <div className="user user-grade">
+                  <p>输入得分</p><span>&nbsp;&nbsp;</span><InputNumber min={0} max={100} defaultValue={0}/>
+                </div>,
+                <div className="user user-judge" onClick={this.handleRecord}>
+                  <p>判卷记录</p>
+                </div>,
+              ]}
+            >
+              <div className="title-content">
+                请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
+              </div>
+            </Card>
+            <Card
+              actions={[
+                <div>
+                  <div className="user user-time">
+                    <p>本题所用时长</p>
+                    <span>4.8 min</span>
+                  </div>
+                </div>,
+                <div className="user user-grade">
+                  <p>输入得分</p><span>&nbsp;&nbsp;</span><InputNumber min={0} max={100} defaultValue={0}/>
+                </div>,
+                <div className="user user-judge" onClick={this.handleRecord}>
+                  <p>判卷记录</p>
+                </div>,
+              ]}
+            >
+              <div className="title-content">
+                请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
+              </div>
+            </Card>
+          </Content>
+          <Sider className="slider">
+            <div className="slider-content">
+                <div className="button-one">
+                  <Button className="judge">批改试卷</Button>
+                </div>
+                <div className="person-info">
+                  <div className="name info-item">考生姓名</div>
+                  <div className="grade info-item">得分</div>
+                  <div className="rank info-item">等级</div>
+                  <div className="result info-item">最终结果</div>
+                </div>
+                <div className="button-box">
+                  <Button className="button-item">上一个</Button>
+                  <Button className="button-item">下一个</Button>
+                </div>
+              </div>
+          </Sider>
+        </Layout>
+        {/* <div className="title" style={titleStyle}>
           <div className="titleOne" style={itemStyle}>
             题目一
             <div className="time" style={timeStyle}>
@@ -138,7 +214,7 @@ class CorrectExam extends Component {
             <Button type="default" style={priStyle}>上一个</Button>
             <Button type="default" style={priStyle}>下一个</Button>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }

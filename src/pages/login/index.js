@@ -1,85 +1,66 @@
-import React , { Component } from 'react';
+import React from 'react';
 import { 
+  Form,
   Input,
   Button,
-  message
+  Checkbox
  } from 'antd';
+import './style.css';
+import loginLogo from '../../assets/login-log.png';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import {
-  BoxContain,
-  InputBox,
-  inputStyle,
-  ButtonBox,
-  buttonStyle,
-  loginBox
-} from './style';
-// import axios from 'axios';
  
-class Login extends Component {
+const Login = () => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name:'',
-      pass:'',
-    }
-    this.handleName = this.handleName.bind(this);
-    this.handlePass = this.handlePass.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
+  const onFinish = () => {
+    console.log('success');
   }
 
-  handleLogin() {
-    //账号不为空
-    if(this.state.name==='') {
-      message.warning({
-        content:'账号不可以为空哦~',
-        style:{
-          marginTop:'20px',
-        }
-      });
-      return ;
-    }
-    //密码不为空
-    if(this.state.pass==='') {
-      message.warning({
-        content:'密码不可以为空哦~',
-        style:{
-          marginTop:'20px',
-        }
-      });
-      return ;
-    }
-    //TODO 发送请求
-    console.log('ok');
+  const onFinishFailed = () => {
+    console.log('error');
   }
 
-  handleName(event) {
-    this.setState({
-      name:event.target.value
-    })
-  }
-
-  handlePass(event) {
-    this.setState({
-      pass:event.target.value
-    })
-  }
-
-  render() {
-    return (
-      <div style={loginBox} className="loginBox">
-        <div style={BoxContain} className="BoxContain">
-          <div style={InputBox} className="InputBox">
-            <Input size="large" placeholder="账号" prefix={<UserOutlined />} style={inputStyle} onChange={this.handleName} value={this.state.name}/>
-            <Input.Password size="large" placeholder="密码" prefix={<LockOutlined />} style={inputStyle} onChange={this.handlePass} value={this.state.pass}/>
-          </div>
-          <div style={ButtonBox} className="ButtonBox">
-            <Button type="primary" style={buttonStyle} onClick={this.handleLogin}>登 录</Button>
-          </div>
+  return (
+    <div className="index-login">
+      <div className="login-contain">
+        <div className="content">
+          <img src={loginLogo} alt=""/>
+          <h1>iNCU-Exam for Ncuhomers</h1>
+          <span className="wel-word">Welcome you gays!~</span>
+          <Form
+            className="login-form"
+            name="login"
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+          >
+            <div className="input-box">
+            <Form.Item
+              name="username"
+              rules={[{ required: true, message: 'Please input your username!' }]}
+            >
+              <Input size="large" placeholder="请输入US账号" prefix={<UserOutlined />} className="login-input" />
+            </Form.Item>
+            <Form.Item
+              name="username"
+              rules={[{ required: true, message: 'Please input your username!' }]}
+            >
+              <Input.Password size="large" placeholder="请输入US账号密码" prefix={<LockOutlined />} className="login-input" />
+            </Form.Item>
+            </div>
+            <Form.Item>
+              <div className="button-box">
+                <Button type="primary" className="button" htmlType="submit">登录</Button>
+                <Button type="default" className="button password-btn">
+                  <a href="http://us.ncuos.com/user/login">
+                    忘记密码
+                  </a>
+                </Button>
+              </div>
+            </Form.Item>
+          </Form>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Login;

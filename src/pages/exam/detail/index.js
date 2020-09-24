@@ -160,7 +160,6 @@ class ExamDetail extends Component {
         title:'姓名',
         dataIndex:'name',
         key:'name',
-        render: text => <a href="javascript:;" onClick={this.handleCheck}>{text}</a>,
       },
       {
         title:'考试分数',
@@ -186,11 +185,13 @@ class ExamDetail extends Component {
         title:'查看考生试卷',
         dataIndex:'look',
         key:'look',
+        render: text => <a href="javascript:;" onClick={this.handleCheck}>{text}</a>,
       },
       {
         title:'批改试卷',
         dataIndex:'judge',
         key:'judge',
+        render: text => <a href="javascript:;" onClick={this.handleCorrect}>{text}</a>,
       }
     ];
 

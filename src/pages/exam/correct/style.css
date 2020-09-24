@@ -12,3 +12,77 @@
     width: 15px;
     height: 15px
 }
+
+.index-box .content {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.index-box .ant-layout .ant-layout-content .ant-card {
+    margin-bottom: 25px;
+}
+
+.index-box .ant-card .ant-card-body {
+    height: 148px
+}
+
+.index-box .ant-card .ant-card-actions .user {
+    height: 30px;
+}
+
+.index-box .ant-card .ant-card-actions .user-grade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index-box .ant-card .ant-card-actions .user-time {
+    text-align: center;
+}
+
+.index-box .ant-layout .ant-layout-sider-children {
+    padding-top: 30px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.slider-content .button-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.slider-content .button-one .judge {
+    border-radius: 5px;
+    width: 80%;
+    height: 70px;
+    font-size: 20px;
+}
+
+.slider-content .person-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 0;
+}
+
+.slider-content .person-info .info-item {
+    margin: 15px 0;
+}
+
+.slider-content .button-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slider-content .button-box .button-item {
+    margin: 10px 0;
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+}
