@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import {
   contentStyle,
-  itemStyle,
-  mistakeStyle,
-  buttonStyle,
-  addStyle,
-  elementStyle,
-  addTitleStyle,
   submitStyle,
   submitButtonStyle
 } from './style';
@@ -14,7 +8,8 @@ import {
   Button,
   Drawer,
   Menu,
-  Dropdown
+  Dropdown,
+  Card
 } from 'antd';
 import { DownOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import Choose from '../../title/components/choose';
@@ -22,6 +17,7 @@ import Tiankong from '../../title/components/tiankong/index';
 import Question from '../../title/components/question/index';
 import Judge from '../../title/components/judge/index';
 import Pic from '../../title/components/pic/index';
+import './style.css';
 
 class LookExam extends Component {
   constructor(props) {
@@ -121,17 +117,48 @@ class LookExam extends Component {
           }
         </Drawer>
         <div className="titleContent" style={contentStyle}>
-          <div className="element" style={elementStyle}>
-            <div className="item" style={itemStyle}>
-              这是个选择题这是个选择题这是个选择题这是个选择题
-              <div className="mistake" style={mistakeStyle}>
-                <Button type="default" style={buttonStyle}>修改</Button>
+          <Card
+            actions={[
+              <div className="action-log" onClick={this.handleAddTitle}>
+                添加题目
+              </div>,
+              <div className="action-log">
+                修改题目
               </div>
+            ]}
+          >
+            <div className="title-content">
+              请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
             </div>
-            <div className="add" style={addTitleStyle} onClick={this.handleAddTitle}>
-              <Button type="default" style={addStyle}>在这里添加题目</Button>
+          </Card>
+          <Card
+            actions={[
+              <div className="action-log" onClick={this.handleAddTitle}>
+                添加题目
+              </div>,
+              <div className="action-log">
+                修改题目
+              </div>
+            ]}
+          >
+            <div className="title-content">
+              请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
             </div>
-          </div>
+          </Card>
+          <Card
+            actions={[
+              <div className="action-log" onClick={this.handleAddTitle}>
+                添加题目
+              </div>,
+              <div className="action-log">
+                修改题目
+              </div>
+            ]}
+          >
+            <div className="title-content">
+              请你阐述以下你为什么要加入家园工作室？希望收获什么，希望得到什么？希望你的学长学姐是什么样的人？希望做什么样的事情
+            </div>
+          </Card>
         </div>
         <div className="submit" style={submitStyle}>
           <Button type="primary" style={submitButtonStyle}>发布试卷</Button>

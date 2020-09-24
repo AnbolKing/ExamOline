@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import {
-  Button
+  Button,
+  Table
 } from 'antd';
 import {
   headerStyle,
   button1Style,
   button4Style,
   buttonStyle,
-  contentHeader,
-  bodyHeader,
-  textStyle,
-  textStyleTodo
 } from './style';
 import store from '../../../reducer/index';
 import emitter from '../../../util/events'
@@ -45,6 +42,77 @@ class LookTask extends Component {
   }
   
   render() {
+    const column = [
+      {
+        title:'姓名',
+        dataIndex:'name',
+        key:'name',
+        render: text => <a href="javascript:;" onClick={this.handleCheck}>{text}</a>,
+      },
+      {
+        title:'考试分数',
+        dataIndex:'grade',
+        key:'grade',
+      },
+      {
+        title:'考试结果',
+        dataIndex:'result',
+        key:'result',
+      },
+      {
+        title:'切屏次数',
+        dataIndex:'screen',
+        key:'screen',
+      },
+      {
+        title:'批改状态',
+        dataIndex:'current',
+        key:'current',
+      },
+      {
+        title:'查看考生试卷',
+        dataIndex:'look',
+        key:'look',
+      },
+      {
+        title:'批改试卷',
+        dataIndex:'judge',
+        key:'judge',
+      }
+    ];
+
+    const data = [
+      {
+        key:'1',
+        name:'王子安',
+        grade:'90',
+        result:'通过',
+        screen:'1',
+        current:'已批改',
+        look:'小眼睛',
+        judge:'小钢笔'
+      },
+      {
+        key:'1',
+        name:'聂一可',
+        grade:'90',
+        result:'通过',
+        screen:'1',
+        current:'已批改',
+        look:'小眼睛',
+        judge:'小钢笔'
+      },
+      {
+        key:'1',
+        name:'苟冰玥',
+        grade:'90',
+        result:'通过',
+        screen:'1',
+        current:'未批改',
+        look:'小眼睛',
+        judge:'小钢笔'
+      }
+    ];
     return (
       <div className="indexBox">
         <div className="exam-header" style={headerStyle}>
@@ -56,35 +124,11 @@ class LookTask extends Component {
           </div>
         </div>
         <div className="exam-content">
-          <div className="content-header" style={contentHeader}>
-            <div style={textStyle}>姓名</div>
-            <div style={textStyle}>考试分数</div>
-            <div style={textStyle}>考试结果</div>
-            <div style={textStyle}>切屏次数</div>
-            <div style={textStyle}>批改状态</div>
-            <div style={textStyle}>查看考生试卷</div>
-            <div style={textStyle}>批改试卷</div>
-          </div>
-          <div className="content">
-            <div className="content-body" style={bodyHeader}>
-              <div style={textStyle}>物联网渣渣</div>
-              <div style={textStyle}>80</div>
-              <div style={textStyle}>通过</div>
-              <div style={textStyle}>100</div>
-              <div style={textStyle}>已批改</div>
-              <div style={textStyleTodo} onClick={this.handleCheck}>小眼睛</div>
-              <div style={textStyleTodo} onClick={this.handleCheck}>小钢笔</div>
-            </div>
-            <div className="content-body" style={bodyHeader}>
-              <div style={textStyle}>计算机大佬</div>
-              <div style={textStyle}>80</div>
-              <div style={textStyle}>通过</div>
-              <div style={textStyle}>100</div>
-              <div style={textStyle}>已批改</div>
-              <div style={textStyleTodo} onClick={this.handleCheck}>小眼睛</div>
-              <div style={textStyleTodo} onClick={this.handleCheck}>小钢笔</div>
-            </div>
-          </div>
+          <Table 
+            columns={column} 
+            dataSource={data}
+            pagination={false}
+          />
         </div>
       </div>
     )

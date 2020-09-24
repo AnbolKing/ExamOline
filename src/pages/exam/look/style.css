@@ -1,0 +1,7 @@
+.indexBox .titleContent .ant-card {
+    margin: 30px 0;
+}
+
+.indexBox .titleContent .ant-card .ant-card-body {
+    height: 105px;
+}

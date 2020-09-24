@@ -160,7 +160,7 @@ class Home extends Component {
                 }
               </div>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+            <Footer style={{ textAlign: 'center' }}>iNCU-Exam-1.0.0 for Ncuhomers ©2020 Created by AnbolKing</Footer>
           </Layout>
         </Layout>
       </div>

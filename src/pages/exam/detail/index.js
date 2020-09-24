@@ -160,7 +160,7 @@ class ExamDetail extends Component {
         title:'姓名',
         dataIndex:'name',
         key:'name',
-        render: text => <a onClick={this.handleCheck}>{text}</a>,
+        render: text => <a href="javascript:;" onClick={this.handleCheck}>{text}</a>,
       },
       {
         title:'考试分数',
