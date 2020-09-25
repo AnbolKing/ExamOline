@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Form,
   Input,
   Button,
-  Checkbox
  } from 'antd';
 import './style.css';
 import loginLogo from '../../assets/login-log.png';
@@ -11,8 +10,13 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
  
 const Login = () => {
 
-  const onFinish = () => {
-    console.log('success');
+  const [name, setName] = useState('');
+  const [pass, setPass] = useState('');
+
+  const onFinish = (event) => {
+    setName(event.username);
+    setPass(event.userpass);
+    console.log(name,pass);
   }
 
   const onFinishFailed = () => {
@@ -24,7 +28,7 @@ const Login = () => {
       <div className="login-contain">
         <div className="content">
           <img src={loginLogo} alt=""/>
-          <h1>iNCU-Exam for Ncuhomers</h1>
+          <h1>iNCU-Exam for Ncuhomers📌</h1>
           <span className="wel-word">Welcome you gays!~</span>
           <Form
             className="login-form"
@@ -40,7 +44,7 @@ const Login = () => {
               <Input size="large" placeholder="请输入US账号" prefix={<UserOutlined />} className="login-input" />
             </Form.Item>
             <Form.Item
-              name="username"
+              name="userpass"
               rules={[{ required: true, message: 'Please input your username!' }]}
             >
               <Input.Password size="large" placeholder="请输入US账号密码" prefix={<LockOutlined />} className="login-input" />
