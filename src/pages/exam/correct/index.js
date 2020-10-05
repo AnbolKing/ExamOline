@@ -6,7 +6,6 @@ import {
   Table,
   Layout,
   InputNumber,
-  Checkbox, 
   Card
 } from 'antd';
 import './style.css';

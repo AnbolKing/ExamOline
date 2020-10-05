@@ -1,7 +1,21 @@
 .index-login {
-    width: 100vw;
+    background-color: #F0F2F5;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
-    background: fixed center url('../../assets/login-bg.png') #F0F2F5 no-repeat;
+    overflow: auto;
+}
+
+@media (min-width:768px) {
+    .index-login {
+        background-image: url('../../assets/login-bg.png');
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .index-login {
+        background-image: url('../../assets/login-bg-mobile.png');
+    }
 }
 
 .index-login .login-contain {
